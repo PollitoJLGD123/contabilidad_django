@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Ventas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .titulo {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .informacion-cliente {
+            margin: 0 20px 30px 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        .informacion-cliente h2 {
+            margin: 5px 0;
+        }
+        .tabla-productos {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .tabla-productos thead {
+            background-color: #007bff;
+            color: black;
+        }
+        .tabla-productos th, .tabla-productos td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .tabla-productos tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .tabla-productos tr:hover {
+            background-color: #ddd;
+        }
+        .total {
+            text-align: right;
+            margin-right: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="titulo">
+        <h1><strong>Reporte de Ventas</strong></h1>
+    </div>
+    <div class="informacion-cliente">
+        <h2><strong>Cliente:</strong> {{ cliente.nombre }} {{ cliente.apellidos }}</h2>
+        <h2><strong>DNI:</strong> {{ cliente.documento }}</h2>
+        <h2><strong>Email del Cliente:</strong> {{ cliente.email }}</h2>
+        <h2><strong>Dirección del Cliente:</strong> {{ cliente.direccion }}</h2>
+        <h2><strong>Fecha de Venta:</strong> {{ venta.fecha_venta }}</h2>
+    </div>
+    
+    <div>
+        <h1 style="text-align: center;">Productos</h1>
+    </div>
+    <div>
+        <table class="tabla-productos">
+            <thead>
+                <tr>
+                    <th>NUMERO DE PRODUCTO</th>
+                    <th>PRODUCTO</th>
+                    <th>CATEGORÍA</th>
+                    <th>CANTIDAD</th>
+                    <th>PRECIO UNITARIO</th>
+                    <th>PRECIO TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if productos %}
+                    {% for producto in productos %}
+                        <tr>
+                            <td>Producto {{ producto.numero }}</td>
+                            <td>{{ producto.descripcion }}</td>
+                            <td>{{ producto.categoria }}</td>
+                            <td>{{ producto.cantidad }}</td>
+                            <td>{{ producto.preciounitario }}</td>
+                            <td>{{ producto.preciototal }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6">No se encontraron productos.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="total">
+        <h2>Importe total: {{ venta.total }}</h2>
+    </div>
+</body>
+</html>
