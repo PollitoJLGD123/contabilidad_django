@@ -419,3 +419,6 @@ def get_cliente_documento(request, cliente_id):
         return JsonResponse({'error': 'Cliente no encontrado'}, status=404)
 
 #FIN VENTAS
+
+def cuadro_mando_integral(request):
+    return render(request, 'cuadro_integral.html')
