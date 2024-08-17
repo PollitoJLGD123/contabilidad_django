@@ -1,110 +1,150 @@
 {% extends "index.html" %}
 {% block content %}
+{% load static %}
 
-<div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h2 class="text-title-md2 font-bold text-black dark:text-white">
-            Ventas
-        </h2>
+<div class="container mx-auto p-6">
+    <!-- Introducción al Planeamiento Estratégico -->
+    <section class="bg-blue-800 text-white text-center py-16">
+        <h1 class="text-4xl font-extrabold mb-4">Planeamiento Estratégico</h1>
+        <p class="text-lg md:text-xl mb-6">El planeamiento estratégico es esencial para el crecimiento sostenido de una empresa líder en tecnología como Intel. Debe incluir un enfoque claro en cómo financiar e impulsar dicho crecimiento.</p>
+    </section>
 
-        <nav>
-            <ol class="flex items-center gap-2">
-                <li>
-                    <a class="font-medium" href="{% url 'listar_ventas' %}">MANTENEDOR /</a>
-                </li>
-                <li class="font-medium text-primary">Ventas</li>
-            </ol>
-        </nav>
-    </div>
+    <section class="my-12">
+        <div>
+            <img src="{% static 'dashboard/build/src/images/estrategias/estrategia2.jpg' %}" alt="Estrategia" class="mx-auto mb-8 rounded-lg shadow-lg">
+        </div>
+      
+        <h2 class="text-3xl font-bold text-center mb-8">Definición de Estrategia</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-yellow-500 p-6 rounded-lg shadow-lg text-black">
+                <h3 class="text-xl font-semibold mb-4">Estrategia</h3>
+                <p>En Intel, la estrategia define el camino para mantenerse como líder en el sector tecnológico, estableciendo metas claras para innovar y superar las expectativas del mercado.</p>
+            </div>
+            <div class="bg-green-500 p-6 rounded-lg shadow-lg text-black">
+                <h3 class="text-xl font-semibold mb-4">Consistencia y Adaptabilidad</h3>
+                <p>Las estrategias de Intel deben ser consistentes, claras y adaptables a los rápidos cambios del mercado tecnológico global.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ejemplos de Estrategias con Intel -->
+    <section class="my-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Ejemplos de Estrategias: Caso Intel</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Estrategia de Alianzas Estratégicas -->
+            <div class="bg-green-600 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Alianzas Estratégicas</h3>
+                <p>Intel ha formado alianzas con empresas líderes en diferentes sectores, como Apple y Microsoft, para integrar sus tecnologías en productos innovadores y alcanzar nuevos mercados.</p>
+                <p><strong>Tip:</strong> Busca socios estratégicos que complementen tus fortalezas y te permitan expandir tu influencia en nuevos segmentos de mercado. Las alianzas pueden acelerar el crecimiento y abrir oportunidades de innovación conjunta.</p>
+            </div>
 
-    <div class="flex justify-between mb-6">
-        <form action="{% url 'listar_ventas' %}" method="GET" class="flex items-center bg-white shadow-md rounded-md overflow-hidden dark:bg-gray-800 max-w-md">
-            <input 
-                type="text" 
-                name="search" 
-                class="form-input px-4 py-2 w-full text-black dark:text-black dark:bg-gray-700 focus:ring-2 focus:ring-blue-600 focus:border-transparent rounded-none" 
-                placeholder="Buscar venta" 
-                value="{{ request.GET.search }}"> 
-            <button 
-                type="submit" 
-                class="px-4 py-2 transition duration-200 ease-in-out">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 12 12">
-                    <path fill="currentColor" d="M5 1a4 4 0 1 0 2.248 7.31l2.472 2.47a.75.75 0 1 0 1.06-1.06L8.31 7.248A4 4 0 0 0 5 1M2.5 5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0"/>
-                </svg>
-            </button>
-        </form>
-        <a href="{% url 'crear_venta' %}" class="px-4 py-2 bg-blue-600 text-black dark:text-white rounded hover:bg-blue-700">Añadir Venta</a>
-    </div>
+            <!-- Estrategia de Sostenibilidad -->
+            <div class="bg-teal-600 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Sostenibilidad y Responsabilidad Corporativa</h3>
+                <p>Intel se ha comprometido a reducir su huella de carbono y a implementar prácticas de manufactura sostenibles. Estas acciones no solo benefician al medio ambiente, sino que también mejoran la imagen de la marca y atraen a consumidores conscientes.</p>
+                <p><strong>Tip:</strong> Incorpora prácticas sostenibles en tu cadena de valor y comunica tus esfuerzos a los consumidores. La sostenibilidad puede convertirse en una ventaja competitiva y fortalecer la lealtad a la marca.</p>
+            </div>
 
-    <div class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-        
-        <table class="w-full table-auto">
-            <thead>
-                <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                    <th class="min-w-[100px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">ID</th>
-                    <th class="min-w-[200px] px-4 py-4 font-medium text-black dark:text-white">CLIENTE</th>
-                    <th class="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">FECHA DE VENTA</th>
-                    <th class="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">DOCUMENTO</th>
-                    <th class="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">TOTAL</th>
-                    <th class="min-w-[120px] px-2 py-4 font-medium text-black dark:text-white">OPCIONES</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if ventas %}
-                    {% for venta in ventas %}
-                        <tr>
-                            <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
-                                <h5 class="font-medium text-black dark:text-white">{{ venta.id }}</h5>
-                            </td>
-                            <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ venta.cliente.nombre }}</p>
-                            </td>
-                            <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ venta.fecha_venta }}</p>
-                            </td>
-                            <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ venta.documento }}</p>
-                            </td>
-                            <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ venta.total }}</p>
-                            </td>
-                            <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                <div class="flex items-center space-x-3.5">
-                                    <a href="{% url 'editar_venta' venta.id %}">
-                                        <button title="Editar" class="hover:text-primary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24">
-                                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                    <form action="{% url 'eliminar_venta' venta.id %}" method="post" style="display:inline;">
-                                        {% csrf_token %}
-                                        <button type="submit" title="Eliminar" class="hover:text-primary" onclick="return confirm('¿Estás seguro de que quieres eliminar esta venta?');">
-                                            <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.7535 2.47502H11.5879V1.9969C11.5879 1.15315 10.9129 0.478149 10.0691 0.478149H7.90352C7.05977 0.478149 6.38477 1.15315 6.38477 1.9969V2.47502H4.21914C3.40352 2.47502 2.72852 3.15002 2.72852 3.96565V4.8094C2.72852 5.42815 3.09414 5.9344 3.62852 6.1594L4.07852 15.4688C4.13477 16.6219 5.09102 17.5219 6.24414 17.5219H11.7004C12.8535 17.5219 13.8098 16.6219 13.866 15.4688L14.3441 6.13127C14.8785 5.90627 15.2441 5.3719 15.2441 4.78127V3.93752C15.2441 3.15002 14.5691 2.47502 13.7535 2.47502ZM7.67852 1.9969C7.67852 1.85627 7.79102 1.74377 7.93164 1.74377H10.0973C10.2379 1.74377 10.3504 1.85627 10.3504 1.9969V2.47502H7.70664V1.9969H7.67852ZM4.02227 3.96565C4.02227 3.85315 4.10664 3.74065 4.24727 3.74065H13.7535C13.866 3.74065 13.9785 3.82502 13.9785 3.96565V4.8094C13.9785 4.9494 13.8941 5.06227 13.7535 5.06227H4.24727C4.13477 5.06227 4.02227 4.9779 4.02227 4.8094V3.96565ZM12.491 15.3925C12.4785 15.6681 12.2566 15.8906 11.981 15.8906H6.52414C6.24852 15.8906 6.02664 15.6681 6.01414 15.3925L5.57664 6.10315H12.9285L12.491 15.3925Z" fill="currentColor"/>
-                                            </svg>
-                                        </button>
-                                    </form>
-                                    <form action="{% url 'reporte_pdf' venta.id %}" method="post" style="display:inline;">
-                                        {% csrf_token %}
-                                        <button type="submit" title="Reporte" class="hover:text-primary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="currentColor" d="M2.5 6.5V6H2v.5zm4 0V6H6v.5zm0 4H6v.5h.5zm7-7h.5v-.207l-.146-.147zm-3-3l.354-.354L10.707 0H10.5zM2.5 7h1V6h-1zm.5 4V8.5H2V11zm0-2.5v-2H2v2zm.5-.5h-1v1h1zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 5 7.5zM3.5 7a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 3.5 6zM6 6.5v4h1v-4zm.5 4.5h1v-1h-1zM9 9.5v-2H8v2zM7.5 6h-1v1h1zM9 7.5A1.5 1.5 0 0 0 7.5 6v1a.5.5 0 0 1 .5.5zM7.5 11A1.5 1.5 0 0 0 9 9.5H8a.5.5 0 0 1-.5.5zM10 6v5h1V6zm.5 1H13V6h-2.5zm0 2H12V8h-1.5zM2 5V1.5H1V5zm11-1.5V5h1V3.5zM2.5 1h8V0h-8zm7.646-.146l3 3l.708-.708l-3-3zM2 1.5a.5.5 0 0 1 .5-.5V0A1.5 1.5 0 0 0 1 1.5zM1 12v1.5h1V12zm1.5 3h10v-1h-10zM14 13.5V12h-1v1.5zM12.5 15a1.5 1.5 0 0 0 1.5-1.5h-1a.5.5 0 0 1-.5.5zM1 13.5A1.5 1.5 0 0 0 2.5 15v-1a.5.5 0 0 1-.5-.5z"/></svg>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td colspan="6" class="text-center py-4">
-                            <p class="text-gray-500 dark:text-gray-400">No se encontraron ventas.</p>
-                        </td>
-                    </tr>
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
+            <!-- Estrategia de Expansión Global -->
+            <div class="bg-red-600 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Expansión Global</h3>
+                <p>Intel ha expandido sus operaciones a mercados emergentes, capturando nuevas bases de clientes y adaptando sus productos a las necesidades locales.</p>
+                <p><strong>Tip:</strong> Explora mercados internacionales con alto potencial de crecimiento y adapta tus productos y estrategias de marketing a las culturas locales. La expansión global puede diversificar tus ingresos y reducir la dependencia de un solo mercado.</p>
+            </div>
+
+            <!-- Estrategia de Transformación Digital -->
+            <div class="bg-orange-600 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Transformación Digital</h3>
+                <p>Intel ha invertido en su propia transformación digital para optimizar procesos internos, mejorar la eficiencia operativa y ofrecer soluciones digitales innovadoras a sus clientes.</p>
+                <p><strong>Tip:</strong> Adopta tecnologías digitales en todos los niveles de tu organización para mejorar la eficiencia y agilidad. La transformación digital no solo optimiza operaciones, sino que también abre nuevas oportunidades de negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planificación Estratégica -->
+    <section class="my-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Planificación Estratégica</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-red-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Proceso</h3>
+                <p>El proceso de planificación estratégica en Intel incluye la identificación de nuevas oportunidades tecnológicas, la evaluación de capacidades internas, y la implementación de estrategias para mantener el liderazgo.</p>
+            </div>
+            <div class="bg-purple-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Componentes</h3>
+                <ul class="list-disc list-inside">
+                    <li>Identificación de la visión tecnológica a largo plazo</li>
+                    <li>Evaluación de capacidades en I+D y producción</li>
+                    <li>Establecimiento de metas de innovación</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasos del Planeamiento Estratégico -->
+    <section class="my-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Pasos del Planeamiento Estratégico</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-blue-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Análisis del Entorno</h3>
+                <p>Intel realiza un análisis exhaustivo del entorno competitivo y las tendencias tecnológicas para identificar oportunidades y amenazas.</p>
+            </div>
+            <div class="bg-teal-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Establecimiento de Dirección</h3>
+                <p>Se definen la visión, misión y objetivos estratégicos alineados con el liderazgo tecnológico.</p>
+            </div>
+            <div class="bg-indigo-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Formulación de Estrategia</h3>
+                <p>Se selecciona la estrategia adecuada, ya sea ofensiva, defensiva o de diversificación, para enfrentar los desafíos del mercado global.</p>
+            </div>
+            <div class="bg-orange-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Ejecución de la Estrategia</h3>
+                <p>Implementación del plan estratégico, alineando recursos y capacidades para alcanzar los objetivos propuestos.</p>
+            </div>
+            <div class="bg-pink-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Control y Evaluación</h3>
+                <p>Monitoreo constante del desempeño y ajuste de la estrategia según los resultados obtenidos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Análisis del Entorno -->
+    <section class="my-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Análisis del Entorno</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-500 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Microentorno</h3>
+                <p>Análisis de la competencia en el mercado de semiconductores, así como de las necesidades de los clientes clave como los fabricantes de dispositivos electrónicos.</p>
+            </div>
+            <div class="bg-green-800 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Macroentorno</h3>
+                <p>Considera factores políticos, económicos, sociales, y tecnológicos que puedan afectar a la industria global de semiconductores.</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- Formulación de Estrategias -->
+     <section class="my-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Formulación de Estrategias</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-yellow-600 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Diversificación</h3>
+                <p>Diversificación hacia mercados emergentes y nuevas tecnologías para minimizar riesgos y maximizar oportunidades en el sector tecnológico.</p>
+            </div>
+            <div class="bg-purple-700 p-6 rounded-lg shadow-lg text-white">
+                <h3 class="text-xl font-semibold mb-4">Diferenciación</h3>
+                <p>Enfoque en la diferenciación tecnológica y de producto para mantener la posición de liderazgo en un mercado altamente competitivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="bg-blue-800 text-white text-center py-16">
+        <h2 class="text-3xl font-bold mb-4">¿Listo para Definir tu Estrategia?</h2>
+        <p class="text-lg md:text-xl mb-6">Contactate con nosotros para lograr un futuro más innovador y exitoso con un plan estratégico sólido.</p>
+        <a href="mailto:contacto@tuempresa.com" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition duration-300">Contáctanos</a>
+    </section>
 </div>
+
+
 
 {% endblock %}
