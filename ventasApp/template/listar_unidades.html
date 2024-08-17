@@ -1,104 +1,162 @@
 {% extends "index.html" %}
 {% block content %}
+{% load static %}
+
+    <!-- Introducción al Riesgo -->
+    <section class="bg-blue-600 text-white text-center py-16 md:py-24">
+        <h1 class="text-4xl font-extrabold mb-4">Gestión del rendimiento</h1>
+        <p class="text-lg md:text-xl mb-6 leading-relaxed">Explora cómo la gestión del rendimiento puede impactar en tu empresa y aprende cómo gestionarlos de manera efectiva.</p>
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img src="{% static 'dashboard/src/images/gr/gr.webp' %}" style="width: 1000px; height: 300px;"             alt="Conceptos de Riesgo" class="rounded-lg shadow-lg">
+        </div>
+
+    </section>
+
+
+
 
 <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h2 class="text-title-md2 font-bold text-black dark:text-white">
-            Unidades
-        </h2>
+    <!-- Definición -->
+    <section class="my-12">
+        <div class="bg-red-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Definición</h2>
+            <p class="text-lg leading-relaxed">La gestión del rendimiento implica el monitoreo y evaluación continua del desempeño de empleados, equipos y procesos dentro de una organización para mejorar la eficiencia y efectividad.</p>
+        </div>
+    </section>
 
-        <nav>
-            <ol class="flex items-center gap-2">
-                <li>
-                    <a class="font-medium" href="index.html">MANTENEDOR /</a>
-                </li>
-                <li class="font-medium text-primary">Unidades</li>
-            </ol>
-        </nav>
-    </div>
+    <!-- Objetivos -->
+    <section class="my-12">
+        <div class="bg-blue-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Objetivos</h2>
+            <ul class="list-disc list-inside text-lg">
+                <li>Mejorar la productividad.</li>
+                <li>Identificar y desarrollar talentos.</li>
+                <li>Alinear el desempeño individual con los objetivos organizacionales.</li>
+            </ul>
+        </div>
+    </section>
 
+    <!-- Proceso de Gestión de Rendimiento -->
+    <section class="my-12">
+        <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Proceso de Gestión de Rendimiento</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Planificación del Rendimiento</h3>
+                    <ul class="list-disc list-inside text-lg">
+                        <li>Crear Planes de Desarrollo Individual (PDI) para abordar áreas de mejora y apoyar el crecimiento profesional.</li>
+                        <li>Proveer oportunidades de capacitación y desarrollo continuo para mejorar competencias y habilidades.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Monitoreo del Rendimiento</h3>
+                    <ul class="list-disc list-inside text-lg">
+                        <li>Implementar revisiones periódicas para monitorear el progreso hacia los objetivos establecidos.</li>
+                        <li>Proveer retroalimentación constructiva y oportuna para apoyar el desarrollo continuo del personal.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Evaluación del Rendimiento</h3>
+                    <ul class="list-disc list-inside text-lg">
+                        <li>Utilizar métodos como la evaluación de 360 grados, autoevaluaciones y revisiones de desempeño estructuradas.</li>
+                        <li>Definir y utilizar Indicadores Clave de Desempeño (KPI) para medir el éxito y la contribución de cada empleado.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Desarrollo del Rendimiento</h3>
+                    <ul class="list-disc list-inside text-lg">
+                        <li>Establecer objetivos claros, medibles, alcanzables, relevantes y con un plazo determinado (SMART).</li>
+                        <li>Comunicar claramente las expectativas y los criterios de evaluación a los empleados.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="flex justify-between ">
-        <form action="{% url 'listar_unidades' %}" method="GET" class="flex items-center bg-white shadow-md rounded-md overflow-hidden dark:bg-gray-800 max-w-md">
-            <input 
-                type="text" 
-                name="search" 
-                class="form-input px-4 py-2 w-full text-black dark:text-black dark:bg-gray-700 focus:ring-2 focus:ring-blue-600 focus:border-transparent rounded-none" 
-                placeholder="Buscar unidad" 
-                value="{{ request.GET.search }}"> 
-            <button 
-                type="submit" 
-                class="px-4 py-2 transition duration-200 ease-in-out">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 12 12">
-                    <path fill="currentColor" d="M5 1a4 4 0 1 0 2.248 7.31l2.472 2.47a.75.75 0 1 0 1.06-1.06L8.31 7.248A4 4 0 0 0 5 1M2.5 5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0"/>
-                </svg>
-            </button>
-        </form>
-        <a href="{% url 'agregar_unidades' %}" class="px-4 py-2 bg-blue-600 text-black rounded hover:bg-blue-700">Añadir</a>
-    </div>
-    <div class="p-2"></div>
-    <div class="flex flex-col gap-64">
-        <div class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-            <table class="w-full table-auto">
-                <thead>
-                    <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                        <th class="min-w-[220px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
-                            CÓDIGO  
-                        </th>
-                        <th class="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
-                            DESCRIPCION
-                        </th>
-                        <th class="min-w-[120px] px-2 py-4 font-medium text-black dark:text-white">
-                            OPCIONES
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if unidad %}
-                        {% for itemunidad in unidad %}
-                            <tr>
-                                <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
-                                    <h5 class="font-medium text-black dark:text-white">{{ itemunidad.id }}</h5>
-                                </td>
-                                <td class="border-b border-[#eee] px-10 py-5 dark:border-strokedark">
-                                    <p class="text-black dark:text-white">{{ itemunidad.descripcion }}</p>
-                                </td>
-                                <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                    <div class="flex items-center space-x-3.5">
-                                        <a href="{% url 'editar_unidades' itemunidad.id %}">
-                                            <button title="Editar" class="hover:text-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24">
-                                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
-                                                </svg>
-                                            </button>
-                                        </a>
-                                        
-                                        <a href="{% url 'eliminar_unidades' itemunidad.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar la Unidad?');">
-                                            <button title="Eliminar" class="hover:text-primary">
-                                                <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13.7535 2.47502H11.5879V1.9969C11.5879 1.15315 10.9129 0.478149 10.0691 0.478149H7.90352C7.05977 0.478149 6.38477 1.15315 6.38477 1.9969V2.47502H4.21914C3.40352 2.47502 2.72852 3.15002 2.72852 3.96565V4.8094C2.72852 5.42815 3.09414 5.9344 3.62852 6.1594L4.07852 15.4688C4.13477 16.6219 5.09102 17.5219 6.24414 17.5219H11.7004C12.8535 17.5219 13.8098 16.6219 13.866 15.4688L14.3441 6.13127C14.8785 5.90627 15.2441 5.3719 15.2441 4.78127V3.93752C15.2441 3.15002 14.5691 2.47502 13.7535 2.47502ZM7.67852 1.9969C7.67852 1.85627 7.79102 1.74377 7.93164 1.74377H10.0973C10.2379 1.74377 10.3504 1.85627 10.3504 1.9969V2.47502H7.70664V1.9969H7.67852ZM4.02227 3.96565C4.02227 3.85315 4.10664 3.74065 4.24727 3.74065H13.7535C13.866 3.74065 13.9785 3.82502 13.9785 3.96565V4.8094C13.9785 4.9219 13.8941 5.0344 13.7535 5.0344H4.24727C4.13477 5.0344 4.02227 4.95002 4.02227 4.8094V3.96565ZM11.7285 16.2563H6.27227C5.79414 16.2563 5.40039 15.8906 5.37227 15.3844L4.95039 6.2719H13.0785L12.6566 15.3844C12.6004 15.8625 12.2066 16.2563 11.7285 16.2563Z" fill=""/>
-                                                    <path d="M9.00039 9.11255C8.66289 9.11255 8.35352 9.3938 8.35352 9.75942V13.3313C8.35352 13.6688 8.63477 13.9782 9.00039 13.9782C9.33789 13.9782 9.64727 13.6969 9.64727 13.3313V9.75942C9.64727 9.3938 9.33789 9.11255 9.00039 9.11255Z" fill=""/>
-                                                    <path d="M11.2502 9.67504C10.8846 9.64692 10.6033 9.90004 10.5752 10.2657L10.4064 12.7407C10.3783 13.0782 10.6314 13.3875 10.9971 13.4157C11.0252 13.4157 11.0252 13.4157 11.0533 13.4157C11.3908 13.4157 11.6721 13.1625 11.6721 12.825L11.8408 10.35C11.8408 9.98442 11.5877 9.70317 11.2502 9.67504Z" fill=""/>
-                                                    <path d="M6.72245 9.67504C6.38495 9.70317 6.1037 10.0125 6.13182 10.35L6.3287 12.825C6.35683 13.1625 6.63808 13.4157 6.94745 13.4157C6.97558 13.4157 6.97558 13.4157 7.0037 13.4157C7.3412 13.3875 7.62245 13.0782 7.59433 12.7407L7.39745 10.2657C7.39745 9.90004 7.08808 9.64692 6.72245 9.67504Z" fill=""/>
-                                                </svg>
-                                            </button>
-                                        </a>
-                                        
-                                    </div>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    {% else %}
-                        <tr style="text-align: center;">
-                            <td colspan="3">
-                                <p>No hay Registros</p>
-                            </td>
-                        </tr>
-                    {% endif %}
-                </tbody>
-            </table>
+    <!-- Reconocimiento y Recompensa -->
+    <section class="my-12">
+        <div class="bg-purple-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Reconocimiento y Recompensa</h2>
+            <p class="text-lg leading-relaxed">Implementar sistemas de incentivos y reconocimiento para motivar y recompensar el desempeño sobresaliente.</p>
+        </div>
+    </section>
+
+    <!-- Beneficios de una Gestión de Rendimiento Efectiva -->
+    <section class="my-12">
+        <div class="bg-yellow-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Beneficios de una Gestión de Rendimiento Efectiva</h2>
+            <ul class="list-disc list-inside text-lg">
+                <li>Mejora del Desempeño: Incrementa la productividad y eficiencia al alinear los esfuerzos individuales con los objetivos organizacionales.</li>
+                <li>Satisfacción del Empleado: Mejora la moral y la satisfacción de los empleados al proporcionar claridad en las expectativas y reconocimiento por su trabajo.</li>
+                <li>Desarrollo Profesional: Fomenta el crecimiento y desarrollo continuo de los empleados, mejorando sus habilidades y competencias.</li>
+                <li>Toma de Decisiones Informada: Proporciona datos y métricas que informan la toma de decisiones estratégicas.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Métodos de Evaluación del Desempeño -->
+    <section class="my-12">
+        <div class="bg-teal-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Métodos de Evaluación del Desempeño</h2>
+            <ul class="list-disc list-inside text-lg">
+                <li>Autoevaluaciones: Los empleados evalúan su propio desempeño.</li>
+                <li>Evaluaciones de los Gerentes: Supervisores directos proporcionan feedback.</li>
+                <li>Evaluaciones de Pares: Colegas del mismo nivel ofrecen su opinión.</li>
+                <li>Evaluaciones de 360 Grados: Feedback de múltiples fuentes, incluyendo clientes y subordinados.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Desafíos y Consideraciones -->
+    <section class="my-12">
+        <div class="bg-orange-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Desafíos y Consideraciones</h2>
+            <ul class="list-disc list-inside text-lg">
+                <li>Resistencia al Cambio: La implementación de nuevos procesos de gestión de rendimiento puede encontrar resistencia por parte de los empleados y gerentes.</li>
+                <li>Imparcialidad y Objetividad: Garantizar que las evaluaciones sean justas y objetivas para evitar sesgos y favoritismos.</li>
+                <li>Integración de Sistemas: Asegurar que los sistemas de gestión de rendimiento se integren eficazmente con otros sistemas organizacionales.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="my-12">
+        <div class="bg-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-3xl font-bold text-center mb-4">Conclusión</h2>
+            <p class="text-lg leading-relaxed">La gestión de rendimiento es una herramienta esencial para cualquier organización que busca mejorar su eficiencia, productividad y satisfacción del empleado. Al seguir un enfoque estructurado y continuo, las organizaciones pueden alinear mejor sus recursos humanos con sus objetivos estratégicos, asegurando así un éxito sostenido a largo plazo.</p>
+        </div>
+    </section>
+</div>
+
+<div class="my-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Ejemplos de Gestión de Rendimiento en Intel</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Ejemplo 1: Mejora de la Productividad -->
+        <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4" style="color: aliceblue;">Mejora de la Productividad</h3>
+            <p style="color: aliceblue;">Intel implementó un sistema de monitoreo de rendimiento en sus plantas de fabricación para optimizar los procesos de producción. Esto permitió identificar cuellos de botella en la producción y mejorar la eficiencia general, reduciendo el tiempo de fabricación y aumentando la producción.</p>
+        </div>
+
+        <!-- Ejemplo 2: Desarrollo del Talento -->
+        <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4" style="color: aliceblue;">Desarrollo del Talento</h3>
+            <p style="color: aliceblue;">Intel introdujo programas de desarrollo profesional y capacitaciones continuas para sus empleados, enfocados en habilidades tecnológicas avanzadas. Esto no solo mejoró la competencia técnica de sus empleados, sino que también alineó mejor sus habilidades con los objetivos estratégicos de la empresa.</p>
+        </div>
+
+        <!-- Ejemplo 3: Evaluación del Desempeño -->
+        <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4" style="color: aliceblue;">Evaluación del Desempeño</h3>
+            <p style="color: aliceblue;">La evaluación del desempeño en Intel se realiza utilizando indicadores clave de desempeño (KPI) específicos para cada rol. Esto asegura que los empleados estén contribuyendo de manera efectiva a los objetivos de la empresa y permite a Intel tomar decisiones informadas sobre promociones y desarrollo.</p>
+        </div>
+
+        <!-- Ejemplo 4: Reconocimiento y Recompensa -->
+        <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4" style="color: aliceblue;">Reconocimiento y Recompensa</h3>
+            <p style="color: aliceblue;">Intel ha implementado un sistema de incentivos para reconocer y recompensar a los empleados que superan las expectativas de rendimiento. Esto incluye bonos basados en el rendimiento y programas de reconocimiento que motivan a los empleados a mantener altos niveles de productividad.</p>
         </div>
     </div>
 </div>
+
+
 
 {% endblock %}
