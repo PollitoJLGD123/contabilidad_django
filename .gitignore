@@ -4,7 +4,8 @@ ventasApp/__pycache__/forms.cpython-312.pyc
 ventasApp/__pycache__/models.cpython-312.pyc
 ventasApp/__pycache__/urls.cpython-312.pyc
 ventasApp/__pycache__/views.cpython-312.pyc
-
+settings.py
+django_sisventas/settings.py
 _pycache_/
 django_sisventas/_pycache_/
 seguridadApp/_pycache_/
