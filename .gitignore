@@ -1,9 +1,10 @@
 # Byte-compiled / optimized / DLL files
-
+django_sisventas/settings.py
 ventasApp/__pycache__/forms.cpython-312.pyc
 ventasApp/__pycache__/models.cpython-312.pyc
 ventasApp/__pycache__/urls.cpython-312.pyc
 ventasApp/__pycache__/views.cpython-312.pyc
+
 
 _pycache_/
 django_sisventas/_pycache_/
@@ -12,6 +13,7 @@ seguridadApp/migrations/_pycache_/
 ventasApp/_pycache_/
 ventasApp/migrations/_pycache_/
 
+**/settings.py
 **/pycache/
 **.pyc
 *.pyc

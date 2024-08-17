@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'django_sisventas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djventas',
+        'NAME': 'dbnuevos',
         'USER':'root',
-        'PASSWORD':'root',
+        'PASSWORD':'',
         'LOCALHOST':'localhost',
         'PORT':'3306'
     }
