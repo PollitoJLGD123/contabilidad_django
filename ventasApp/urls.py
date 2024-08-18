@@ -4,7 +4,8 @@ from ventasApp.views import (
     listar_clientes, crear_cliente, editar_cliente, eliminar_cliente,
     listar_unidades, agregar_unidades, eliminar_unidades, editar_unidades,
     listar_productos, crear_producto, editar_producto, eliminar_producto,
-    listar_ventas, crear_venta, editar_venta, eliminar_venta, get_cliente_documento,reporte_pdf 
+    listar_ventas, crear_venta, editar_venta, eliminar_venta, get_cliente_documento,reporte_pdf,
+    cuadro_mando_integral
 )
 from django.contrib.auth import views
 
@@ -38,6 +39,9 @@ urlpatterns = [
     
     
     path('reportepdf/<int:id>', reporte_pdf, name='reporte_pdf'),
+    
+
+    path('cuadro_integral', cuadro_mando_integral, name='cuadro_integral'),
     
     ]
 
