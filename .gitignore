@@ -13,7 +13,7 @@ seguridadApp/_pycache_/
 seguridadApp/migrations/_pycache_/
 ventasApp/_pycache_/
 ventasApp/migrations/_pycache_/
-
+django_sisventas\settings.py
 **/settings.py
 **/pycache/
 **.pyc
