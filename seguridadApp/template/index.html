@@ -8,7 +8,6 @@
     <title>{% block title %}Sistema de Ventas{% endblock %}</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="{% static 'dashboard/build/style.css' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
 
@@ -20,12 +19,22 @@
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
   >
     <!-- ===== Preloader Start ===== -->
+    <div
+      x-show="loaded"
+      x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+      class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black"
+    >
+      <div
+        class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"
+      ></div>
+    </div>
+
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->
-    <div  class="flex h-screen overflow-hidden">
+    <div class="flex h-screen overflow-hidden">
       <!-- ===== Sidebar Start ===== -->
-      <aside style="background-color:black"
+      <aside
         :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
         class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
         @click.outside="sidebarToggle = false"
@@ -173,15 +182,6 @@
                           class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
                            href="{% url 'listar_ventas' %}"  
                           >Ventas
-                        </a>
-                      </li>
-                    </ul>
-                    <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
-                      <li>
-                        <a
-                          class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
-                           href="{% url 'cuadro_integral' %}"  
-                          >Cuadro de Mando Integral
                         </a>
                       </li>
                     </ul>
@@ -854,7 +854,6 @@
     <!-- ===== Page Wrapper End ===== -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="{% static 'dashboard/build/bundle.js' %}"></script>
-    
   </body>
 </html>
 {% block js %}
